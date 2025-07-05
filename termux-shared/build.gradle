@@ -30,7 +30,7 @@ android {
 
         implementation "com.termux:termux-am-library:v2.0.0"
         // experimental
-        implementation 'com.github.MrRare2:termux-pm-library:v2.0.0'
+        implementation 'com.github.MrRare2:termux-pm-library:v2.0.1'
     }
 
     defaultConfig {
