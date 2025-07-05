@@ -922,6 +922,7 @@ public final class TermuxConstants {
 
         /** termux-am socket file path */
         public static final String TERMUX_AM_SOCKET_FILE_PATH = APPS_DIR_PATH + "/termux-am/am.sock"; // Default: "/data/data/com.termux/files/apps/com.termux/termux-am/am.sock"
+                                                                                    public static final String TERMUX_PM_SOCKET_FILE_PATH = APPS_DIR_PATH + "/termux-pm/pm.sock";
 
 
         /** Termux app BuildConfig class name */

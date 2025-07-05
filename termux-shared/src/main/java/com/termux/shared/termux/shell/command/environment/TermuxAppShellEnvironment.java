@@ -16,6 +16,8 @@ import com.termux.shared.termux.TermuxBootstrap;
 import com.termux.shared.termux.TermuxConstants;
 import com.termux.shared.termux.TermuxUtils;
 import com.termux.shared.termux.shell.am.TermuxAmSocketServer;
+import com.termux.shared.termux.shell.pm.TermuxPmSocketServer;
+
 
 import java.util.HashMap;
 
@@ -76,7 +78,7 @@ public class TermuxAppShellEnvironment {
     /** Environment variable for the Termux app {@link TermuxAmSocketServer#getTermuxAppAMSocketServerEnabled(Context)}. */
     public static final String ENV_TERMUX_APP__AM_SOCKET_SERVER_ENABLED = TERMUX_APP_ENV_PREFIX + "AM_SOCKET_SERVER_ENABLED";
 
-
+    public static final String ENV_TERMUX_APP__PM_SOCKET_SERVER_ENABLED = TERMUX_APP_ENV_PREFIX + "PM_SOCKET_SERVER_ENABLED";
 
     /** Get shell environment for Termux app. */
     @Nullable
@@ -132,6 +134,9 @@ public class TermuxAppShellEnvironment {
             ShellEnvironmentUtils.putToEnvIfSet(environment, ENV_TERMUX_APP__AM_SOCKET_SERVER_ENABLED,
                 TermuxAmSocketServer.getTermuxAppAMSocketServerEnabled(currentPackageContext));
 
+            ShellEnvironmentUtils.putToEnvIfSet(environment, ENV_TERMUX_APP__PM_SOCKET_SERVER_ENABLED,
+                TermuxPmSocketServer.getTermuxAppPMSocketServerEnabled(currentPackageContext));
+
             String filesDirPath = currentPackageContext.getFilesDir().getAbsolutePath();
             ShellEnvironmentUtils.putToEnvIfSet(environment, ENV_TERMUX_APP__FILES_DIR, filesDirPath);
 
@@ -169,4 +174,11 @@ public class TermuxAppShellEnvironment {
             TermuxAmSocketServer.getTermuxAppAMSocketServerEnabled(currentPackageContext));
     }
 
+    /** same as above but for {@link #ENV_TERMUX_APP__PM_SOCKET_SERVER_ENABLED} */
+    public synchronized static void updateTermuxAppPMSocketServerEnabled(@NonNull Context currentPackageContext) {
+        if (termuxAppEnvironment == null) return;
+        termuxAppEnvironment.remove(ENV_TERMUX_APP__PM_SOCKET_SERVER_ENABLED);
+        ShellEnvironmentUtils.putToEnvIfSet(termuxAppEnvironment, ENV_TERMUX_APP__PM_SOCKET_SERVER_ENABLED,
+            TermuxPmSocketServer.getTermuxAppPMSocketServerEnabled(currentPackageContext));
+    }
 }
