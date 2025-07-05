@@ -611,7 +611,7 @@ public abstract class TermuxSharedProperties {
     }
 
     public boolean shouldRunTermuxPmSocketServer() {
-        return (boolean) getInternalPropertyValue(TermuxConstants.KEY_RUN_TERMUX_PM_SOCKET_SERVER);
+        return (boolean) getInternalPropertyValue(TermuxConstants.KEY_RUN_TERMUX_PM_SOCKET_SERVER, true);
     }
 
     public boolean shouldOpenTerminalTranscriptURLOnClick() {
