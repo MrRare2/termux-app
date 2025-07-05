@@ -222,7 +222,7 @@ public class PmSocketServer {
             stderrPrintStream.flush();
             stderr.append(stderrByteStream.toString(StandardCharsets.UTF_8.name()));
         } catch (Exception e) {
-            return PmSocketServerErrno.ERRNO_RUN_PM_COMMAND_FAILED_WITH_EXCEPTION.getError(e, Arrays.toString(amCommandArray), e.getMessage());
+            return PmSocketServerErrno.ERRNO_RUN_PM_COMMAND_FAILED_WITH_EXCEPTION.getError(e, Arrays.toString(pmCommandArray), e.getMessage());
         }
 
         return null;
