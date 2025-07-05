@@ -165,7 +165,7 @@ public class TermuxPmSocketServer {
 
 
 
-    public static Boolean getTermuxAppAMSocketServerEnabled(@NonNull Context currentPackageContext) {
+    public static Boolean getTermuxAppPMSocketServerEnabled(@NonNull Context currentPackageContext) {
         boolean isTermuxApp = TermuxConstants.TERMUX_PACKAGE_NAME.equals(currentPackageContext.getPackageName());
         if (isTermuxApp) {
             return TERMUX_APP_PM_SOCKET_SERVER_ENABLED;
