@@ -2,6 +2,7 @@ package com.termux.shared.termux.settings.properties;
 
 import com.google.common.collect.ImmutableBiMap;
 import com.termux.shared.termux.shell.am.TermuxAmSocketServer;
+import com.termux.shared.termux.shell.pm.TermuxPmSocketServer;
 import com.termux.shared.theme.NightMode;
 import com.termux.shared.file.FileUtils;
 import com.termux.shared.file.filesystem.FileType;
@@ -134,8 +135,9 @@ public final class TermuxPropertyConstants {
 
     /** Defines the key for whether the {@link TermuxAmSocketServer} should be run at app startup */
     public static final String KEY_RUN_TERMUX_AM_SOCKET_SERVER =  "run-termux-am-socket-server"; // Default: "run-termux-am-socket-server"
-
-
+    
+    /* stub for pm too !TODO */
+    public static final String KEY_RUN_TERMUX_PM_SOCKET_SERVER =  "run-termux-pm-socket-server";
 
     /** Defines the key for whether url links in terminal transcript will automatically open on click or on tap */
     public static final String KEY_TERMINAL_ONCLICK_URL_OPEN =  "terminal-onclick-url-open"; // Default: "terminal-onclick-url-open"
@@ -399,6 +401,7 @@ public final class TermuxPropertyConstants {
         KEY_EXTRA_KEYS_TEXT_ALL_CAPS,
         KEY_HIDE_SOFT_KEYBOARD_ON_STARTUP,
         KEY_RUN_TERMUX_AM_SOCKET_SERVER,
+        KEY_RUN_TERMUX_PM_SOCKET_SERVER,
         KEY_TERMINAL_ONCLICK_URL_OPEN,
         KEY_USE_CTRL_SPACE_WORKAROUND,
         KEY_USE_FULLSCREEN,
@@ -459,7 +462,8 @@ public final class TermuxPropertyConstants {
      */
     public static final Set<String> TERMUX_DEFAULT_TRUE_BOOLEAN_BEHAVIOUR_PROPERTIES_LIST = new HashSet<>(Arrays.asList(
         KEY_EXTRA_KEYS_TEXT_ALL_CAPS,
-        KEY_RUN_TERMUX_AM_SOCKET_SERVER
+        KEY_RUN_TERMUX_AM_SOCKET_SERVER,
+        KEY_RUN_TERMUX_PM_SOCKET_SERVER
     ));
 
     /** Defines the set for keys loaded by termux that have default inverted boolean behaviour with false as default.
